@@ -19,7 +19,7 @@ public class FrapsCont : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        enter = false;
         if (enter)
         {
             Debug.Log("entered");
