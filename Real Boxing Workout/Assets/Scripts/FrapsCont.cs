@@ -1,37 +1,37 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FrapsCont : MonoBehaviour {
     static public int _frapcont;
     public GameObject _sac;
     public bool enter = true;
-    // Use this for initialization
+    static public bool tempo = false;
+    public Text _textscore;
+    static public float _score;
+
     void Start ()
     {
         _frapcont = 0;
 		
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     private void OnTriggerExit(Collider other)
     {
         //enter = false;
         if (enter)
         {
+            tempo = true;
             Debug.Log("entered");
+
             _frapcont += 1;
-            /*lastInterval = Time.realtimeSinceStartup;
-            if (Time.timeScale == 1.0f)
-                Time.timeScale = 0f;*/
-
         }
-
-     
-        
     }
+
+    private void Update()
+    {
+        _textscore.text = "HITS " + _frapcont;
+    }
+
 }

@@ -8,9 +8,4 @@ public class ChangeScene : MonoBehaviour {
     {
         SceneManager.LoadScene(changeTheScene);
     }
-
-    void OnMouseUp()
-    {
-        //SceneManager.LoadScene("SceneName", LoadSceneMode.single);
-    }
 }

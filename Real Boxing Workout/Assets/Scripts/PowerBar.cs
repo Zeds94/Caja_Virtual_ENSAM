@@ -7,6 +7,7 @@ public class PowerBar : MonoBehaviour {
 
     public bool _in = false;
     public bool _out = true;
+    static public bool _true = true;
     public Rigidbody rb;
     public float _velocity;
     public Text _velocitext;
@@ -14,7 +15,8 @@ public class PowerBar : MonoBehaviour {
 	void Start ()
     {
         rb = GetComponent<Rigidbody>();
-        _velocity = 0f;
+        //_velocity = 0f;
+        
 	}
 	
 	
@@ -22,8 +24,9 @@ public class PowerBar : MonoBehaviour {
     {
         _in = true;
         _out = false;
-        _velocity = rb.velocity.sqrMagnitude;
-        _velocitext.text = "Velocity " + _velocity;
+        //_velocity();
+       // _velocity = rb.velocity.sqrMagnitude;
+        //_velocitext.text = "Velocity " + _velocity;
 
     }
 
@@ -34,7 +37,8 @@ public class PowerBar : MonoBehaviour {
         
     }
 
-    void Update () {
+    void Update ()
+    {
         
     }
 }
