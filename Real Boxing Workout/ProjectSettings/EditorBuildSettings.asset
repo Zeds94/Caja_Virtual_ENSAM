@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main_menu.unity
     guid: 027ccc228c8815d41953c129b285335a
   - enabled: 1
-    path: Assets/Scenes/Environment.unity
+    path: Assets/Scenes/Environment_Sac.unity
     guid: 59478c7d49198cc46bdf008f8b7329d8
+  - enabled: 1
+    path: Assets/Scenes/Environment_Coach.unity
+    guid: 93907326efccb4a48ab4636e7d8f49fb
   m_configObjects: {}

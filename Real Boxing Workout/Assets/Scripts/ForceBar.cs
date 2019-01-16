@@ -6,30 +6,37 @@ using UnityEngine.UI;
 public class ForceBar : MonoBehaviour
 {
 
-    //[Range(0.0f, 10.0f)]
     private float _force;
-
     [SerializeField]
     private GameObject gant;
-
     public Image _barreDeForce;
 
-    // Use this for initialization
-    void Start()
-    {
+    public bool force = false;
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
+        if (force == false)
+        {
+
+            _force = gant.GetComponent<PowerTest>().VelMag;
+            if (_force > 120f) _force = 120f;
+            _barreDeForce.rectTransform.sizeDelta = new Vector2(400 - (_force * 3.33f), _barreDeForce.rectTransform.sizeDelta.y);
+        }
+
+        if ( force == true)
+        {
+            _force = gant.GetComponent<PowerTest>().VelMag;
+            float f = _force * 12 / Time.deltaTime;
+
+            _barreDeForce.rectTransform.sizeDelta = new Vector2(4800 - ( _force * 0.0833f), _barreDeForce.rectTransform.sizeDelta.y);
 
 
-        _force = gant.GetComponent<PowerTest>().VelMag;
 
-        if (_force > 10f) _force = 10f;
 
-        _barreDeForce.rectTransform.sizeDelta = new Vector2(400 - (_force * 40), _barreDeForce.rectTransform.sizeDelta.y);
-        //Debug.Log(400 - (_force * 40));
+        }
+
+
+
+
     }
 }

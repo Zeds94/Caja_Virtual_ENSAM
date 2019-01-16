@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class TableauSons : MonoBehaviour {
 
-    public GameObject[] sons;
+    public AudioSource[] sons;
 
     void Start () {
 		
 	}
+
+
 	
 }
