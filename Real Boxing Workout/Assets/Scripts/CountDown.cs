@@ -1,29 +1,56 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CountDown : MonoBehaviour
 {
     private double lastInterval;
-    float timeLeft=10.0f;
-	void Update ()
-    {/*
-        // float timer += Time.deltaTime;
-        float timer;
-        //  string minutes = Mathf.Floor(timer / 60).ToString("00");
-        //        string seconds = (timer % 60).ToString("00");
-        /*string minutes="arepa";
-        string seconds= "lol";
-        print(string.Format("{0}:{1}", minutes, seconds));
+    public float timeLeft, TimeTotal;
+    [SerializeField]
+    private AudioSource _speaker;
+    [SerializeField]
+    static public bool _soundPlayed = false;
+    public Text Timer;
 
-        timeLeft -= Time.deltaTime;
-        if (timeLeft < 0)
+    private void Start()
+    {
+        TimeTotal = timeLeft;
+        string minutes = Mathf.Floor(timeLeft / 60).ToString("00");
+        string seconds = (timeLeft % 60).ToString("00");
+        Timer.text = "TEMPS:" + minutes + ":" + seconds;
+        
+    }
+
+    void Update()
+    {
+        if (FrapsCont.tempo == true)
         {
-                Debug.Log("entered");
-                lastInterval = Time.realtimeSinceStartup;
-                if (Time.timeScale == 1.0f)
-                    Time.timeScale = 0f;
+            timeLeft -= Time.deltaTime;
+            string minutes = Mathf.Floor(timeLeft / 60).ToString("00");
+            string seconds = (timeLeft % 60).ToString("00");
+            Timer.text = "TEMPS:" + minutes + ":" + seconds;
+        }
 
-        }*/
+        if (timeLeft <= 0f && _soundPlayed == false)
+        {
+            Timer.text = "TEMPS:00:00";
+            _speaker.Play();
+            _soundPlayed = true;
+            lastInterval = Time.realtimeSinceStartup;
+            FrapsCont.tempo = false;
+            if (Time.timeScale == 1.0f)
+                Time.timeScale = 0f;
+
+                
+
+
+        }
+
+    }
+
+    public void setTime(float f)
+    {
+        timeLeft = f;
     }
 }
